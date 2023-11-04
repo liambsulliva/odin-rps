@@ -1,3 +1,4 @@
+// Generates the string 'rock', 'paper', or 'scissors' each time run
 function getComputerChoice () {
     const rand = Math.floor((Math.random() * 3) + 1); // Returns int between 1-3
     switch (rand) {
@@ -9,7 +10,7 @@ function getComputerChoice () {
             return "SCISSORS";
     }
 }
-
+// Returns string given player and computer selection
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
         return `It's a tie! Both players picked ${playerSelection}`;
@@ -22,6 +23,7 @@ function playRound (playerSelection, computerSelection) {
     }
 }
 
+// Runs rounds and prints results to console
 function game () {
     for (let i = 0; i < 5; i++) {
         let input = prompt(`Enter Rock, Paper, or Scissors: `);
