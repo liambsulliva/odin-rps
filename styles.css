@@ -9,7 +9,7 @@
     align-items: center;
     min-height: 100vh;
   }
-  
+
   .choice-container {
     display: flex;
     justify-content: center;
@@ -27,7 +27,11 @@
   }
   
   .choice-container button:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
+  }
+
+  .choice-container button:active {
+    transform: scale(0.95);
   }
   
   /* Scoring section */
