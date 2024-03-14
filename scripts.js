@@ -25,7 +25,7 @@ paperBtn.appendChild(paperImg);
 scissorsBtn.appendChild(scissorsImg);
 
 // Set up scoring in the DOM
-const scores = document.querySelector('div');
+const scores = document.querySelector('.scoring');
 const playerScoreCounter = document.createElement('p');
 const computerScoreCounter = document.createElement('p');
 const gameStatus = document.createElement('p');
