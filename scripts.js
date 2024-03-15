@@ -7,23 +7,6 @@ const rockBtn = document.getElementById('ROCK');
 const paperBtn = document.getElementById('PAPER');
 const scissorsBtn = document.getElementById('SCISSORS');
 
-const rockImg = document.createElement('img');
-rockImg.src = 'src/rock.png';
-rockImg.width = 50;
-rockImg.height = 50;
-const paperImg = document.createElement('img');
-paperImg.src = 'src/paper.svg';
-paperImg.width = 50;
-paperImg.height = 50;
-const scissorsImg = document.createElement('img');
-scissorsImg.src = 'src/scissors.svg';
-scissorsImg.width = 50;
-scissorsImg.height = 50;
-
-rockBtn.appendChild(rockImg);
-paperBtn.appendChild(paperImg);
-scissorsBtn.appendChild(scissorsImg);
-
 // Set up scoring in the DOM
 const scores = document.querySelector('.scoring');
 const playerScoreCounter = document.createElement('p');
@@ -37,7 +20,7 @@ scores.appendChild(playerScoreCounter);
 scores.appendChild(computerScoreCounter);
 
 // Listen for button clicks
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('ul li');
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -62,14 +45,20 @@ function getComputerChoice () {
 // Returns string given player and computer selection to feed to game()
 function playRound (playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
+        gameStatus.classList.remove('shake-text');
+        gameStatus.classList.remove('bounce-text');
         return `Round Tied! Both players picked ${playerSelection}`;
     } else if ((playerSelection === "ROCK" && computerSelection === "SCISSORS") || (playerSelection === "PAPER" && computerSelection === "ROCK") || (playerSelection === "SCISSORS" && computerSelection === "PAPER")) {
         playerScore++;
         playerScoreCounter.textContent = 'Player Score: ' + playerScore;
+        gameStatus.classList.remove('shake-text');
+        gameStatus.classList.add('bounce-text');
         return `Round Won! ${playerSelection} beats ${computerSelection}`;
     } else {
         computerScore++;
         computerScoreCounter.textContent = 'CPU Score: ' + computerScore;
+        gameStatus.classList.remove('bounce-text');
+        gameStatus.classList.add('shake-text');
         return `Round Lost! ${computerSelection} beats ${playerSelection}`;
     }
 }

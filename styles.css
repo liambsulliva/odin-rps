@@ -1,36 +1,106 @@
-
   body {
+    color: #fff;
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #191919;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    box-sizing: border-box;
   }
 
   .choice-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 1rem;
+    margin-right: 45px;
+    margin-bottom: 20px;
   }
-  
-  .choice-container button {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    cursor: pointer;
-    margin: 0 0.5rem;
-    padding: 0.5rem;
-    transition: transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);;
-  }
-  
-  .choice-container button:hover {
-    transform: scale(1.02);
+ 
+  ul {
+      position: relative;
+      display: flex;
+      gap: 50px;
   }
 
-  .choice-container button:active {
+  ul li {
+      position: relative;
+      list-style: none;
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.5s;
+  }
+
+  ul li::before {
+      content: '';
+      position: absolute;
+      inset: 18px;
+      box-shadow: 0 0 0 10px #fff,
+                  0 0 0 20px #191919,
+                  0 0 0 22px #fff;
+      transition: 0.35s;
+      border-radius: 2px;
+  }
+
+  ul li:hover::before {
+      inset: 10px;
+  }
+
+  ul li::after {
+      content: '';
+      position: absolute;
+      inset: 0px;
+      background: #191919;
+      transition: 0.35s;
+  }
+
+  ul li a {
+      position: relative;
+      text-decoration: none;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  ul li a svg {
+      font-size: 2em;
+      transition: 0.5s;
+      color: #fff;
+      opacity: 1;
+  }
+
+  ul li:hover a svg {
+      color: #fff;
+      transform: translateY(-40%);
+  }
+
+  ul li a span {
+      position: absolute;
+      font-family: sans-serif;
+      color: #fff;
+      opacity: 0;
+      transition: 0.5s;
+      transform: scale(0) translateY(200%);
+  }
+
+  ul li:hover a span {
+      opacity: 1;
+      transform: scale(1) translateY(100%);
+  }
+  
+  ul li:hover a i,
+  ul li a span {
+      filter: drop-shadow(0 0 20px #fff) drop-shadow(0 0 40px #fff) drop-shadow(0 0 60px #fff);
+  }
+
+  ul li:hover:active {
     transform: scale(0.95);
   }
   
@@ -44,6 +114,57 @@
   
   .scoring p {
     margin: 0.25rem 0;
+  }
+  
+  @keyframes shake {
+    5%, 15% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    10%, 20% {
+      transform: translate3d(3px, 0, 0);
+    }
+    25%, 35% {
+      transform: translate3d(-5px, 0, 0);
+    }
+    30%, 40% {
+      transform: translate3d(5px, 0, 0);
+    }
+    50%, 60% {
+      transform: translate3d(-2px, 0, 0);
+    }
+    55%, 65% {
+      transform: translate3d(2px, 0, 0);
+    }
+    70%, 80% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    75%, 85% {
+      transform: translate3d(1px, 0, 0);
+    }
+    90%, 100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .shake-text {
+    animation: shake 0.75s cubic-bezier(0.19, 0.97, 0.36, 0.07);
+    transform: translate3d(0, 0, 0);
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .bounce-text {
+    animation: bounce 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
   
   footer {
