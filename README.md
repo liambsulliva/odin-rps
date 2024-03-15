@@ -19,7 +19,7 @@ This is a simple implementation of the classic Rock Paper Scissors game using HT
 4. The game will determine the winner based on the typical rules:
   - Rock beats Scissors
   - Paper beats Rock
-  - Scissors beat Paper
+  - Scissors beats Paper
 5. The scores for the player and the computer will be updated accordingly.
 6. The game will continue until either the player or the computer reaches a score of 5.
 7. Once a winner is determined, the game will alert you who's won, and the game will reset.
